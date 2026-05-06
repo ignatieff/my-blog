@@ -1,0 +1,133 @@
+---
+// src/components/AudioPlayer.astro
+import { SITE } from '@/config';
+
+const { enabled, streamUrl, stationName, isStream } = SITE.audio;
+
+if (!enabled) return;
+---
+
+<div class="compact-radio" data-stream-url={streamUrl}>
+  <button class="compact-radio-btn" aria-label="Play radio">
+    <svg class="play-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M8 5v14l11-7z"/>
+    </svg>
+    <svg class="pause-icon hidden" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+    </svg>
+  </button>
+  
+  <div class="compact-waveform">
+    <span class="wave-bar" style="--delay: 0s; --h: 40%"></span>
+    <span class="wave-bar" style="--delay: 0.1s; --h: 70%"></span>
+    <span class="wave-bar" style="--delay: 0.2s; --h: 50%"></span>
+    <span class="wave-bar" style="--delay: 0.3s; --h: 90%"></span>
+    <span class="wave-bar" style="--delay: 0.4s; --h: 60%"></span>
+  </div>
+  
+  <span class="compact-live">LIVE</span>
+</div>
+
+<style>
+  .compact-radio {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 2rem;
+    transition: all 0.2s ease;
+  }
+  
+  .compact-radio-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    color: currentColor;
+    transition: transform 0.2s ease;
+  }
+  
+  .compact-radio-btn:hover {
+    transform: scale(1.1);
+  }
+  
+  .compact-waveform {
+    display: flex;
+    align-items: center;
+    gap: 0.125rem;
+    height: 0.75rem;
+  }
+  
+  .compact-waveform .wave-bar {
+    width: 2px;
+    background: currentColor;
+    height: var(--h);
+    animation: compactWave 1s ease-in-out infinite;
+    animation-delay: var(--delay);
+    animation-play-state: paused;
+    border-radius: 1px;
+  }
+  
+  .compact-radio.playing .wave-bar {
+    animation-play-state: running;
+  }
+  
+  @keyframes compactWave {
+    0%, 100% {
+      height: 20%;
+    }
+    50% {
+      height: var(--h);
+    }
+  }
+  
+  .compact-live {
+    background: #ff3b30;
+    color: white;
+    padding: 0.0625rem 0.25rem;
+    border-radius: 0.25rem;
+    font-size: 0.55rem;
+    font-weight: bold;
+    letter-spacing: 0.3px;
+  }
+  
+  .hidden {
+    display: none;
+  }
+</style>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const container = document.querySelector('.compact-radio');
+    if (!container) return;
+    
+    const audio = new Audio();
+    audio.src = container.dataset.streamUrl;
+    let isPlaying = false;
+    
+    const btn = container.querySelector('.compact-radio-btn');
+    const playIcon = container.querySelector('.play-icon');
+    const pauseIcon = container.querySelector('.pause-icon');
+    
+    btn?.addEventListener('click', async () => {
+      if (isPlaying) {
+        audio.pause();
+        playIcon?.classList.remove('hidden');
+        pauseIcon?.classList.add('hidden');
+        container.classList.remove('playing');
+      } else {
+        try {
+          await audio.play();
+          playIcon?.classList.add('hidden');
+          pauseIcon?.classList.remove('hidden');
+          container.classList.add('playing');
+        } catch (error) {
+          console.log('Playback error:', error);
+        }
+      }
+      isPlaying = !isPlaying;
+    });
+  });
+</script>

@@ -27,6 +27,13 @@ interface Site {
   dynamicOgImage: boolean;
   lang: string;
   timezone: string;
+  audio: {
+    enabled: boolean;
+    streamUrl: string;
+    stationName: string;
+    isStream: boolean;
+    terminalPrompt: string;
+  };
 }
 
 // Site configuration
@@ -51,6 +58,13 @@ export const SITE: Site = {
   dynamicOgImage: !import.meta.env.DISABLE_OG,
   lang: "en",
   timezone: "Europe/Moscow",
+   audio: {
+    enabled: true,
+    streamUrl: "https://radiorecord.hostingradio.ru/hype96.aacp",
+    stationName: "HYPE",
+    isStream: true,
+    terminalPrompt: "~/blog $",
+  },
 };
 
 export const SITE_TITLE = SITE.title;

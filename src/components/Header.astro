@@ -8,6 +8,7 @@ import IconX from "@/assets/icons/IconX.svg";
 import { SITE } from "@/config";
 import Hr from "./Hr.astro";
 import LinkButton from "./LinkButton.astro";
+import AudioPlayer from "./AudioPlayer.astro"; // 👈 Добавьте импорт
 
 const { pathname } = Astro.url;
 
@@ -97,6 +98,12 @@ const isActive = (path: string) => {
               </li>
             )
           }
+          
+          {/* 👇 ДОБАВЬТЕ АУДИО-ПЛЕЕР ЗДЕСЬ */}
+          <li class="col-span-2 flex items-center justify-center sm:col-span-1">
+            <AudioPlayer />
+          </li>
+          
           <li class="col-span-2 flex items-center justify-center gap-4 sm:col-span-1 sm:gap-0">
             <LinkButton
               href="/search"
@@ -169,3 +176,13 @@ const isActive = (path: string) => {
     toggleNav();
   });
 </script>
+
+<style is:global>
+  /* Дополнительные стили для плеера в мобильной версии */
+  @media (max-width: 640px) {
+    .terminal-radio {
+      transform: scale(0.9);
+      margin: 0.25rem 0;
+    }
+  }
+</style>
