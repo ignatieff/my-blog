@@ -34,7 +34,7 @@ export const SITE: Site = {
   website: "https://ignx.ru/",
   author: "Владислав Игнатьев",
   profile: "https://ignx.ru/about",
-  desc: "Личный блог о технологиях, AI, блокчейне, приватности и разработке. Посты из Telegram-канала @ignxblog.",
+  desc: "Собираю здесь опыт в разработке, инструкции по ремонту и конспекты, чтобы всё было под рукой. Посты из Telegram-канала @ignxblog.",
   title: "Vladislav Ignatieff",
   ogImage: "avatar.jpg",
   lightAndDarkMode: true,
@@ -71,7 +71,7 @@ export const NAV_LINKS: SocialLink[] = [
 // Social media links
 export const SOCIAL_LINKS: SocialLink[] = [
   {
-    href: "https://github.com/ignx-l",
+    href: "https://github.com/ignatieff",
     label: "GitHub",
   },
   {

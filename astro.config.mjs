@@ -103,7 +103,7 @@ export default defineConfig({
       manifest: {
         name: "ignx",
         short_name: "ignx",
-        description: "Личный блог о технологиях, AI, блокчейне, приватности и разработке.",
+        description: "Собираю здесь опыт в разработке, инструкции по ремонту и конспекты, чтобы всё было под рукой.",
         theme_color: "#006cac",
         background_color: "#fdfdfd",
         display: "standalone",

@@ -14,7 +14,7 @@ export const GET: APIRoute = async () => {
 ## Ссылки
 
 - Telegram: [@ignxblog](https://t.me/ignxblog)
-- GitHub: [@ignx-l](https://github.com/ignx-l)
+- GitHub: [@ignx-l](https://github.com/ignatieff)
 - VK: [ignx](https://vk.com/ignx)`;
 
   return new Response(markdownContent, {

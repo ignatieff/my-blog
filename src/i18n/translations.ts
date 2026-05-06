@@ -17,7 +17,7 @@ export const translations = {
     "ui.viewOnTelegram": "Читать в Telegram",
     "ui.sharePost": "Поделиться:",
     "hero.greeting": "Привет, я @ignx.",
-    "hero.description": "Пишу о сетевой безопасности, разработке цифровых помощников, создании контента с помощью нейросетей, ремонте и создании электроники.",
+    "hero.description": "Собираю здесь опыт в разработке, инструкции по ремонту и конспекты, чтобы всё было под рукой.",
   },
   en: {
     "nav.posts": "Posts",
@@ -37,7 +37,7 @@ export const translations = {
     "ui.viewOnTelegram": "View on Telegram",
     "ui.sharePost": "Share:",
     "hero.greeting": "Hi, I'm @ignx.",
-    "hero.description": "Writing about tech, AI, blockchain, privacy and development.",
+    "hero.description": "A personal hub for dev notes, repair guides, and summaries. Keeping knowledge within reach.",
   },
 } as const;
 

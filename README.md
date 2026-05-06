@@ -1,26 +1,32 @@
-# ignx.ton
+# ✍️ ignx.ton — мой блог
 
-Личный сайт / блог Игнатьева Владислава. Архив постов из Telegram-канала [@ignxblog](https://t.me/ignxblog).
+**Личный сайт и блог Игнатьева Владислава**
 
-Построен на [Astro](https://astro.build) + [AstroPaper](https://astro-paper.pages.dev/).
+> Архив постов из Telegram-канала [@ignxblog](https://t.me/ignxblog)
 
-## Команды
+Сайт доступен по адресу: [**ignx.ru**](https://ignx.ru)
 
-| Команда            | Действие                                     |
-| :----------------- | :------------------------------------------- |
-| `npm install`      | Установка зависимостей                       |
-| `npm run build`    | Сборка сайта в `./dist/`                     |
-| `npm run preview`  | Превью сборки локально                       |
+---
 
-## Деплой
+## 📖 О проекте
 
-1. `npm run build` — генерирует статику в `dist/`
-2. Отдавать `dist/` через nginx
-3. Проксировать через [tonutils/reverse-proxy](https://github.com/tonutils/reverse-proxy) в сеть TON
+Современный, быстрый и минималистичный блог, построенный на **Astro** с использованием темы **AstroPaper**.
 
-## Лицензия
+**Технологии:**
+- ⚡️ [Astro](https://astro.build) — генератор статических сайтов
+- 🎨 [Tailwind CSS](https://tailwindcss.com) — стилизация
+- 🌍 **i18n** — поддержка русского и английского языков
+- 🔍 **Pagefind** — быстрый поиск по сайту
+- 📡 **RSS** — автоматическая лента новостей
+- 🤖 **SEO** — полная оптимизация
 
-- **Контент**: [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/)
-- **Код**: [MIT](LICENSE)
+---
 
-Спасибо [Sat Naing](https://github.com/satnaing) за тему [AstroPaper](https://astro-paper.pages.dev/).
+## 🚀 Быстрый старт (для локальной разработки)
+
+### Клонирование и установка
+
+```bash
+git clone https://github.com/ignatieff/my-blog.git
+cd my-blog
+npm install

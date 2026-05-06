@@ -3,14 +3,14 @@ import { SITE } from "./consts";
 export const SOCIALS = [
   {
     name: "Github",
-    href: "https://github.com/ignx-l",
+    href: "https://github.com/ignatieff",
     linkTitle: ` ${SITE.title} on Github`,
     icon: "github",
     active: true,
   },
   {
     name: "Telegram",
-    href: "https://t.me/daily_scrum",
+    href: "https://t.me/ignxblog",
     linkTitle: `${SITE.title} в Telegram`,
     icon: "telegram",
     active: true,
