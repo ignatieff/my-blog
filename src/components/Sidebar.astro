@@ -1,0 +1,86 @@
+---
+import { SITE_TITLE } from "../consts";
+---
+
+<div id="sidebar">
+  <div id="nav-wrapper">
+    <div id="profile-wrapper" class="d-flex flex-column">
+      <div id="avatar" class="d-flex justify-content-center">
+        <a href="/">
+          <img
+            src="/avatar.jpg"
+            alt="Аватар ignx"
+          />
+        </a>
+      </div>
+      <div class="profile-text mt-3">
+        <div id="site-title">
+          <a href="/">{SITE_TITLE}</a>
+        </div>
+        <div id="site-subtitle" class="font-italic">
+          Технологии, AI, блокчейн, приватность и разработка
+        </div>
+      </div>
+    </div>
+
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a href="/" class="nav-link">
+          <i class="fa-fw fas fa-home"></i>
+          <span>ГЛАВНАЯ</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/posts" class="nav-link">
+          <i class="fa-fw fas fa-pen-nib"></i>
+          <span>ЗАПИСИ</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/about" class="nav-link">
+          <i class="fa-fw fas fa-info"></i>
+          <span>ОБО МНЕ</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="sidebar-bottom">
+    <div class="social-links">
+      <a href="https://github.com/ignx-l" target="_blank">
+        <i class="fab fa-github-alt"></i>
+      </a>
+      <a href="https://t.me/daily_scrum" target="_blank">
+        <i class="fab fa-telegram-plane"></i>
+      </a>
+      <a href="https://vk.com/ignx" target="_blank">
+        <i class="fab fa-vk"></i>
+      </a>
+      <a href="/rss.xml" target="_blank">
+        <i class="fas fa-rss"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    navLinks.forEach((link) => {
+      const href = link.getAttribute("href");
+      if (!href) return;
+      if (href === "/" && currentPath === "/") {
+        link.classList.add("active");
+      } else if (href !== "/" && currentPath.startsWith(href)) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+/>
