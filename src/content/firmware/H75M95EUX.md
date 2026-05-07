@@ -4,8 +4,8 @@ version: "Android TV"
 device: "Haier H75M95EUX (Телевизор)"
 fileUrl: "#"
 fileSize: "700 MB"
-pubDatetime: 2026-11-19
-description: "Инструкция по восстановлению и сбросу для телевизора Haier H75M95EUX на Android TV 11.0."
+pubDatetime: 2026-05-26
+description: "Инструкция по восстановлению и сбросу для телевизора Haier H75M95EUX на Android TV."
 tags: ["haier", "телевизор", "android-tv", "инструкция", "сброс"]
 changelog: []
 ---

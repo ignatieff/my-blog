@@ -4,8 +4,8 @@ version: "Android TV"
 device: "Haier 98_Smart_S8_H98S900UX (Телевизор)"
 fileUrl: "#"
 fileSize: "700 MB"
-pubDatetime: 2025-01-24
-description: "Инструкция по восстановлению и сбросу для телевизора Haier 98_Smart_S8_H98S900UX на Android TV 11.0."
+pubDatetime: 2025-11-24
+description: "Инструкция по восстановлению и сбросу для телевизора Haier 98_Smart_S8_H98S900UX на Android TV."
 tags: ["haier", "телевизор", "android-tv", "инструкция", "сброс"]
 changelog: []
 ---

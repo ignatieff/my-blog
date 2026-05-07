@@ -9,16 +9,20 @@ export async function getStaticPaths() {
   
   return allFirmware.map(firmware => {
     const filePath = firmware.file;
-    const slug = filePath.split('/').pop()?.replace(/\.(md|mdx)$/, '') || '';
+    // Декодируем slug из имени файла
+    let slug = filePath.split('/').pop()?.replace(/\.(md|mdx)$/, '') || '';
+    // Заменяем пробелы на дефисы, убираем спецсимволы
+    slug = slug.replace(/\s+/g, '-').toLowerCase();
     
     return {
       params: { slug },
-      props: { firmware },
+      props: { firmware, originalSlug: slug },
     };
   });
 }
 
-const { firmware } = Astro.props;
+const { firmware, originalSlug } = Astro.props;
+const currentSlug = originalSlug || Astro.params.slug;
 
 if (!firmware) {
   return Astro.redirect("/404");
@@ -35,20 +39,24 @@ const { frontmatter, Content } = firmware;
       <a href="/firmware/1" class="text-blue-500 hover:underline">← Назад ко всем файлам</a>
     </div>
     
-    <article data-pagefind-article>
+    <div data-pagefind-body>
       <div class="border rounded-lg p-6 border-gray-200 dark:border-gray-800">
-        <h1 class="text-2xl font-bold" data-pagefind-meta="title">{frontmatter.title}</h1>
+        <h1 class="text-2xl font-bold" data-pagefind-filter="title">{frontmatter.title}</h1>
         
         <div class="flex gap-2 my-4">
-          <span class="bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded text-sm">💽 {frontmatter.device}</span>
-          <span class="bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded text-sm">📌 {frontmatter.version}</span>
+          <span class="bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded text-sm" data-pagefind-filter="device">
+            💽 {frontmatter.device}
+          </span>
+          <span class="bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded text-sm" data-pagefind-filter="version">
+            📌 {frontmatter.version}
+          </span>
         </div>
         
-        <div class="prose dark:prose-invert max-w-none">
+        <div class="prose dark:prose-invert max-w-none" data-pagefind-filter="description">
           <Content />
         </div>
       </div>
-    </article>
+    </div>
   </main>
   
   <Footer />

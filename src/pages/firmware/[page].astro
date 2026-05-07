@@ -35,94 +35,93 @@ const paginatedFirmware = sortedFirmware.slice(start, end);
 <Layout title={`Файлы - Страница ${currentPage}`} description="Хранилище файлов от IGNX">
   <Header />
 
-  <div class="max-w-3xl mx-auto px-4 py-8">
-    <h1 class="text-3xl font-semibold tracking-tight mb-2">Файлы</h1>
-    
-    <div class="text-gray-600 dark:text-gray-400 text-sm mb-6">
-      <p>Скачать прошивки и файлы для различных устройств</p>
-    </div>
-
-    <div class="space-y-8">
-      {paginatedFirmware.map((firmware) => {
-        const slug = firmware.file.split('/').pop()?.replace(/\.(md|mdx)$/, '') || '';
-        const detailUrl = `/firmware/${slug}`;
-        
-        return (
-          <!-- Добавляем data-pagefind-* атрибуты -->
-          <article 
-            class="border-b border-gray-200 dark:border-gray-800 pb-8 last:border-0"
-            data-pagefind-article
-            data-pagefind-filter="type:Прошивка"
-          >
-            <div class="flex flex-col sm:flex-row sm:justify-between gap-4">
-              <div class="flex-1">
-                <h2 class="text-2xl font-semibold tracking-tight mb-2" data-pagefind-meta="title">
-                  <a href={detailUrl} class="hover:text-blue-500 transition">
-                    {firmware.frontmatter.title}
-                  </a>
-                </h2>
-                
-                <div class="flex flex-wrap gap-2 mb-3">
-                  <span class="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-700 px-2 py-0.5 rounded" data-pagefind-meta="device">
-                    💽 {firmware.frontmatter.device}
-                  </span>
-                  <span class="text-xs bg-green-100 dark:bg-green-900/30 text-green-700 px-2 py-0.5 rounded" data-pagefind-meta="version">
-                    📌 {firmware.frontmatter.version}
-                  </span>
-                </div>
-                
-                <p class="text-gray-600 dark:text-gray-400 text-sm" data-pagefind-meta="description">
-                  {firmware.frontmatter.description}
-                </p>
-                
-                <div class="flex gap-4 mt-3 text-xs text-gray-500">
-                  <span>📅 {new Date(firmware.frontmatter.pubDatetime).toLocaleDateString()}</span>
-                  <span>📦 {firmware.frontmatter.fileSize}</span>
-                </div>
-              </div>
-              
-              <div class="flex flex-row sm:flex-col gap-2">
-                <a
-                  href={firmware.frontmatter.fileUrl}
-                  target="_blank"
-                  class="border border-gray-200 dark:border-gray-700 hover:border-blue-500 px-4 py-2 rounded-lg text-sm text-center transition"
-                >
-                  ⬇️ Скачать
-                </a>
-                <a
-                  href={detailUrl}
-                  class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm text-center whitespace-nowrap"
-                >
-                  Подробнее →
-                </a>
-              </div>
-            </div>
-          </article>
-        );
-      })}
-    </div>
-
-    {totalPages > 1 && (
-      <div class="flex justify-center items-center gap-4 mt-8 pt-4">
-        {currentPage > 1 ? (
-          <a href={currentPage === 2 ? '/firmware/1' : `/firmware/${currentPage - 1}`} class="px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-500 transition">
-            ← Назад
-          </a>
-        ) : (
-          <span class="px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 opacity-50 cursor-not-allowed">← Назад</span>
-        )}
-        
-        <span class="text-sm text-gray-600 dark:text-gray-400">Страница {currentPage} из {totalPages}</span>
-        
-        {currentPage < totalPages ? (
-          <a href={`/firmware/${currentPage + 1}`} class="px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-500 transition">
-            Вперёд →
-          </a>
-        ) : (
-          <span class="px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 opacity-50 cursor-not-allowed">Вперёд →</span>
-        )}
+  <!-- ОБЕРТКА ДЛЯ PAGEINDEX - весь список будет проиндексирован -->
+  <div data-pagefind-body>
+    <div class="max-w-3xl mx-auto px-4 py-8">
+      <h1 class="text-3xl font-semibold tracking-tight mb-2">Файлы</h1>
+      
+      <div class="text-gray-600 dark:text-gray-400 text-sm mb-6">
+        <p>Скачать прошивки и файлы для различных устройств</p>
       </div>
-    )}
+
+      <div class="space-y-8">
+        {paginatedFirmware.map((firmware) => {
+          const slug = firmware.file.split('/').pop()?.replace(/\.(md|mdx)$/, '') || '';
+          const detailUrl = `/firmware/${slug}`;
+          
+          return (
+            <article class="border-b border-gray-200 dark:border-gray-800 pb-8 last:border-0">
+              <div class="flex flex-col sm:flex-row sm:justify-between gap-4">
+                <div class="flex-1">
+                  <h2 class="text-2xl font-semibold tracking-tight mb-2" data-pagefind-filter="title">
+                    <a href={detailUrl} class="hover:text-blue-500 transition">
+                      {firmware.frontmatter.title}
+                    </a>
+                  </h2>
+                  
+                  <div class="flex flex-wrap gap-2 mb-3">
+                    <span class="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-700 px-2 py-0.5 rounded" data-pagefind-filter="device">
+                      💽 {firmware.frontmatter.device}
+                    </span>
+                    <span class="text-xs bg-green-100 dark:bg-green-900/30 text-green-700 px-2 py-0.5 rounded" data-pagefind-filter="version">
+                      📌 {firmware.frontmatter.version}
+                    </span>
+                  </div>
+                  
+                  <p class="text-gray-600 dark:text-gray-400 text-sm" data-pagefind-filter="description">
+                    {firmware.frontmatter.description}
+                  </p>
+                  
+                  <div class="flex gap-4 mt-3 text-xs text-gray-500">
+                    <span>📅 {new Date(firmware.frontmatter.pubDatetime).toLocaleDateString()}</span>
+                    <span>📦 {firmware.frontmatter.fileSize}</span>
+                  </div>
+                </div>
+                
+                <div class="flex flex-row sm:flex-col gap-2">
+                  <a
+                    href={firmware.frontmatter.fileUrl}
+                    target="_blank"
+                    class="border border-gray-200 dark:border-gray-700 hover:border-blue-500 px-4 py-2 rounded-lg text-sm text-center transition"
+                    data-pagefind-ignore
+                  >
+                    ⬇️ Скачать
+                  </a>
+                  <a
+                    href={detailUrl}
+                    class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm text-center whitespace-nowrap"
+                  >
+                    Подробнее →
+                  </a>
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+
+      {totalPages > 1 && (
+        <div class="flex justify-center items-center gap-4 mt-8 pt-4" data-pagefind-ignore>
+          {currentPage > 1 ? (
+            <a href={currentPage === 2 ? '/firmware/1' : `/firmware/${currentPage - 1}`} class="px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-500 transition">
+              ← Назад
+            </a>
+          ) : (
+            <span class="px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 opacity-50 cursor-not-allowed">← Назад</span>
+          )}
+          
+          <span class="text-sm text-gray-600 dark:text-gray-400">Страница {currentPage} из {totalPages}</span>
+          
+          {currentPage < totalPages ? (
+            <a href={`/firmware/${currentPage + 1}`} class="px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-500 transition">
+              Вперёд →
+            </a>
+          ) : (
+            <span class="px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 opacity-50 cursor-not-allowed">Вперёд →</span>
+          )}
+        </div>
+      )}
+    </div>
   </div>
 
   <Footer />

@@ -4,8 +4,8 @@ version: "Android TV"
 device: "Haier H65M95EUG (Телевизор)"
 fileUrl: "#"
 fileSize: "700 MB"
-pubDatetime: 2026-09-02
-description: "Инструкция по восстановлению и сбросу для телевизора Haier H65M95EUG на Android TV 11.0."
+pubDatetime: 2025-11-16
+description: "Инструкция по восстановлению и сбросу для телевизора Haier H65M95EUG на Android TV."
 tags: ["haier", "телевизор", "android-tv", "инструкция", "сброс"]
 changelog: []
 ---

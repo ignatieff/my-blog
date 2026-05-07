@@ -4,8 +4,8 @@ version: "Android TV"
 device: "Haier EVO (Телевизор)"
 fileUrl: "#"
 fileSize: "700 MB"
-pubDatetime: 2025-04-12
-description: "Инструкция по восстановлению и сбросу для телевизора Haier EVO на Android TV 11.0."
+pubDatetime: 2026-08-23
+description: "Инструкция по восстановлению и сбросу для телевизора Haier EVO на Android TV."
 tags: ["haier", "телевизор", "android-tv", "инструкция", "сброс"]
 changelog: []
 ---

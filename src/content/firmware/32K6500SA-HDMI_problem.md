@@ -4,8 +4,8 @@ version: "Android TV"
 device: "Haier 32K6500SA-HDMI_problem (Телевизор)"
 fileUrl: "#"
 fileSize: "700 MB"
-pubDatetime: 2025-04-14
-description: "Инструкция по восстановлению и сбросу для телевизора Haier 32K6500SA-HDMI_problem на Android TV 11.0."
+pubDatetime: 2026-09-13
+description: "Инструкция по восстановлению и сбросу для телевизора Haier 32K6500SA-HDMI_problem на Android TV."
 tags: ["haier", "телевизор", "android-tv", "инструкция", "сброс"]
 changelog: []
 ---
