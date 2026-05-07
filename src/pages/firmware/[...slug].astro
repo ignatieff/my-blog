@@ -1,0 +1,55 @@
+---
+// src/pages/firmware/[...slug].astro
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+
+export async function getStaticPaths() {
+  const allFirmware = await Astro.glob("../../content/firmware/*.{md,mdx}");
+  
+  return allFirmware.map(firmware => {
+    const filePath = firmware.file;
+    const slug = filePath.split('/').pop()?.replace(/\.(md|mdx)$/, '') || '';
+    
+    return {
+      params: { slug },
+      props: { firmware },
+    };
+  });
+}
+
+const { firmware } = Astro.props;
+
+if (!firmware) {
+  return Astro.redirect("/404");
+}
+
+const { frontmatter, Content } = firmware;
+---
+
+<Layout title={`${frontmatter.title} — Прошивка`} description={frontmatter.description}>
+  <Header />
+  
+  <main class="max-w-3xl mx-auto px-4 py-8">
+    <div class="mb-4">
+      <a href="/firmware/1" class="text-blue-500 hover:underline">← Назад ко всем файлам</a>
+    </div>
+    
+    <article data-pagefind-article>
+      <div class="border rounded-lg p-6 border-gray-200 dark:border-gray-800">
+        <h1 class="text-2xl font-bold" data-pagefind-meta="title">{frontmatter.title}</h1>
+        
+        <div class="flex gap-2 my-4">
+          <span class="bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded text-sm">💽 {frontmatter.device}</span>
+          <span class="bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded text-sm">📌 {frontmatter.version}</span>
+        </div>
+        
+        <div class="prose dark:prose-invert max-w-none">
+          <Content />
+        </div>
+      </div>
+    </article>
+  </main>
+  
+  <Footer />
+</Layout>

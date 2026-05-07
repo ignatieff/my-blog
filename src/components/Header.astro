@@ -8,7 +8,7 @@ import IconX from "@/assets/icons/IconX.svg";
 import { SITE } from "@/config";
 import Hr from "./Hr.astro";
 import LinkButton from "./LinkButton.astro";
-import AudioPlayer from "./AudioPlayer.astro"; // 👈 Добавьте импорт
+import AudioPlayer from "./AudioPlayer.astro";
 
 const { pathname } = Astro.url;
 
@@ -98,8 +98,11 @@ const isActive = (path: string) => {
               </li>
             )
           }
-          
-          {/* 👇 ДОБАВЬТЕ АУДИО-ПЛЕЕР ЗДЕСЬ */}
+          <li class="col-span-2 flex items-center justify-center gap-4 sm:col-span-1 sm:gap-0">
+  <a href="/firmware/1" class:list={{ "active-nav": isActive("/firmware") }}>
+    Файлы
+  </a>
+</li>
           <li class="col-span-2 flex items-center justify-center sm:col-span-1">
             <AudioPlayer />
           </li>
