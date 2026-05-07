@@ -60,7 +60,7 @@ export const SITE: Site = {
   timezone: "Europe/Moscow",
    audio: {
     enabled: true,
-    streamUrl: "https://stream-176.zeno.fm/aowljarkmjyuv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJhb3dsamFya21qeXV2IiwiaG9zdCI6InN0cmVhbS0xNzYuemVuby5mbSIsInJ0dGwiOjUsImp0aSI6Ii1RRHRYb2UzUUZlcjM3U0FaYUxaY0EiLCJpYXQiOjE3NzgwODkzNzgsImV4cCI6MTc3ODA4OTQzOH0.jMSBKc2_obiydXkLIisMuMfaJ62MubCIh6jKGb3WZl4",
+    streamUrl: "https://hls-01-radiorecord.hostingradio.ru/record-ps/112/playlist.m3u8",
     stationName: "HYPE",
     isStream: true,
     terminalPrompt: "~/blog $",
