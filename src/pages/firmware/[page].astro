@@ -46,7 +46,7 @@ const paginatedFirmware = sortedFirmware.slice(start, end);
 
       <div class="space-y-8">
         {paginatedFirmware.map((firmware) => {
-          const slug = firmware.file.split('/').pop()?.replace(/\.(md|mdx)$/, '') || '';
+          const slug = firmware.file.split('/').pop()?.replace(/\.(md|mdx)$/, '').toLowerCase() || '';
           const detailUrl = `/firmware/${slug}`;
           
           return (
