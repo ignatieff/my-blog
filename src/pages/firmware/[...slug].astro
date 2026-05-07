@@ -42,7 +42,17 @@ const { frontmatter, Content } = firmware;
     <div data-pagefind-body>
       <div class="border rounded-lg p-6 border-gray-200 dark:border-gray-800">
         <h1 class="text-2xl font-bold" data-pagefind-filter="title">{frontmatter.title}</h1>
-        
+        {/* Кнопка скачивания */}
+<div class="my-4">
+  <a
+    href={frontmatter.fileUrl}
+    download
+    class="border border-gray-200 dark:border-gray-700 hover:border-blue-500 px-4 py-2 rounded-lg text-sm text-center transition"
+                    data-pagefind-ignore
+  >
+    <span>⬇️</span> Скачать прошивку ({frontmatter.fileSize})
+  </a>
+</div>
         <div class="flex gap-2 my-4">
           <span class="bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded text-sm" data-pagefind-filter="device">
             💽 {frontmatter.device}
