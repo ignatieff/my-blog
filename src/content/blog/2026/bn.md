@@ -7,24 +7,6 @@ descriptionRu: "Ремонт Samsung UE40H6230AK: когда замена под
 tags: ["repair", "samsung", "electronics", "tv-repair", "diy"]
 ---
 
-Brought in a Samsung UE40H6230AK. Classic symptoms: sound is there, image can be seen with a flashlight, but the backlight is dead. Standard stuff, or so I thought.
-
-![TV with no backlight, flashlight test](https://i.imgur.com/RxqOvnd.jpeg)
-
-I tore it down, found a burnt-out LED on the strip. Replaced the whole backlight kit (never swap just one LED, it’s a waste of time). Fired it up — silence. Still no light.
-
-![Burnt LED on strip](https://i.imgur.com/9dElc4Y.jpeg)
-
-I started digging into the power board, the **BN44-00709A**. Checked the PIC16F753 controller and components along the power line. The multimeter showed some voltage, but the LED driver refused to start.
-
-![Power board BN44-00709A](https://i.imgur.com/ksh2mkY.jpeg)
-
-The culprit? An invisible cold solder joint near transistors **Q885 and Q886**. Visually, it looked fine, but it created ripples and unstable contact that a simple multimeter couldn't catch. A quick resolder of that area fixed everything instantly.
-
-![Q885/Q886 area highlighted](https://i.imgur.com/aTBZvAI.jpeg)
-
----
-
 Притащили Samsung UE40H6230AK. Классика: звук есть, картинку видно под фонариком, подсветка в ауте. "Делов на 20 минут", — подумал я. Ага, сейчас.
 
 ![Тест фонариком — картинка есть, подсветки нет](https://i.imgur.com/RxqOvnd.jpeg)
